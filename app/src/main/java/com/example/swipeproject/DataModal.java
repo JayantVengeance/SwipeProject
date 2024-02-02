@@ -56,4 +56,6 @@ public class DataModal {
     public void setImage(String image) {
         this.image = image;
     }
+
+
 }

@@ -99,10 +99,22 @@ public class MainActivity extends AppCompatActivity {
 
     private void filterList(String text) {
         List<PostPojo> filteredList = new ArrayList<>();
-        for (PostPojo item : postList) {
-            if (item.getProduct_name().toLowerCase().trim().contains(text.toLowerCase().trim())) {
-                filteredList.add(item);
+        for (PostPojo item : postList)
+        {
+            int st = 0;
+            int e = text.length();
+            String big = item.getProduct_name().toLowerCase().trim();
+            if(big.length()>=text.length())
+            {
+                if(big.substring(st,e).toLowerCase().equals(text.toLowerCase().trim()))
+                {
+                    filteredList.add(item);
+                }
             }
+//            if (item.getProduct_name().toLowerCase().trim().contains(text.toLowerCase().trim()))
+//            {
+//                filteredList.add(item);
+//            }
         }
         if (filteredList.size() == 0) {
             Toast.makeText(MainActivity.this, "No data found", Toast.LENGTH_SHORT).show();
